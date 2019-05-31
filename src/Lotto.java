@@ -296,7 +296,7 @@ public class Lotto extends JFrame implements MouseListener, KeyListener {
 	}
 	
 	public static void main(String[] args) throws Exception{
-		String fName="BMDOHYEON_ttf.ttf";
+		String fName="NotoSansKR-Medium.otf";
 		Font f1 = Font.createFont(Font.TRUETYPE_FONT, new File(fName));
 		f1 = f1.deriveFont(20f); // 글자 크기 20으로 지정, float 형식이라서 f 입력
 		setUIFont(new FontUIResource(f1)); // 전체 글꼴 지정
