@@ -13,6 +13,7 @@ import javax.swing.UIManager;
 import javax.swing.plaf.FontUIResource;
 
 import org.json.simple.JSONObject;
+import javax.swing.SwingConstants;
 
 public class Lotto extends JFrame implements MouseListener, KeyListener {
 
@@ -58,7 +59,7 @@ public class Lotto extends JFrame implements MouseListener, KeyListener {
 	public void init() {
 		getContentPane().setLayout(null);
 		
-		title_label.setBounds(33, 26, 193, 30);
+		title_label.setBounds(33, 26, 144, 30);
 		getContentPane().add(title_label);
 		
 		mbtn1.setBounds(33, 66, 66, 66);
@@ -88,8 +89,9 @@ public class Lotto extends JFrame implements MouseListener, KeyListener {
 		turn_text.setColumns(10);
 		turn_text.setBounds(180, 310, 132, 42);
 		getContentPane().add(turn_text);
+		turn_text.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		turn_label.setBounds(55, 310, 99, 42);
+		turn_label.setBounds(189, 26, 99, 30);
 		getContentPane().add(turn_label);
 		
 		result_btn.setBounds(335, 310, 171, 42);
@@ -97,27 +99,33 @@ public class Lotto extends JFrame implements MouseListener, KeyListener {
 		
 		plus_label.setBounds(497, 90, 14, 15);
 		getContentPane().add(plus_label);
+		num1_text.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		
 		num1_text.setColumns(10);
 		num1_text.setBounds(43, 192, 46, 46);
 		getContentPane().add(num1_text);
+		num2_text.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		num2_text.setColumns(10);
 		num2_text.setBounds(101, 192, 46, 46);
 		getContentPane().add(num2_text);
+		num3_text.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		num3_text.setColumns(10);
 		num3_text.setBounds(159, 192, 46, 46);
 		getContentPane().add(num3_text);
+		num4_text.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		num4_text.setColumns(10);
 		num4_text.setBounds(217, 192, 46, 46);
 		getContentPane().add(num4_text);
+		num5_text.setHorizontalAlignment(SwingConstants.CENTER);
 
 		num5_text.setColumns(10);
 		num5_text.setBounds(275, 192, 46, 46);
 		getContentPane().add(num5_text);
+		num6_text.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		num6_text.setColumns(10);
 		num6_text.setBounds(335, 192, 46, 46);
@@ -206,7 +214,6 @@ public class Lotto extends JFrame implements MouseListener, KeyListener {
 				if(overlapCount>1) {
 					myWinString= "중복된 숫자는 입력할 수 없습니다.";
 					num = false;
-					System.out.println(overlapCount);
 					break;
 				}else {
 					overlapCount =0;
@@ -234,7 +241,9 @@ public class Lotto extends JFrame implements MouseListener, KeyListener {
 			}
 			
 			// 마지막 반점 없애기
-			myWinString=myWinString.substring(0, myWinString.length()-2);
+			if(count!=0) {
+				myWinString=myWinString.substring(0, myWinString.length()-2);
+			}
 			
 			loops:
 				switch(count) {
@@ -296,7 +305,7 @@ public class Lotto extends JFrame implements MouseListener, KeyListener {
 	}
 	
 	public static void main(String[] args) throws Exception{
-		String fName="BMDOHYEON_ttf.ttf";
+		String fName="NotoSansKR-Bold.ttf";
 		Font f1 = Font.createFont(Font.TRUETYPE_FONT, new File(fName));
 		f1 = f1.deriveFont(20f); // 글자 크기 20으로 지정, float 형식이라서 f 입력
 		setUIFont(new FontUIResource(f1)); // 전체 글꼴 지정
@@ -306,7 +315,8 @@ public class Lotto extends JFrame implements MouseListener, KeyListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if(e.getSource()==result_btn) {
-			printResult();				
+			printResult();
+			my_win.setText("");
 		}
 		if(e.getSource()==check_btn) {
 			checkNumber();

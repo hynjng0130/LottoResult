@@ -27,9 +27,8 @@ public class MyButton extends JButton{
 		else
 			g.setColor(Color.blue);
 		
-		g.fillRoundRect(0, 0, width, height, 50, 50);
-		
+		g.fillRoundRect(0, 0, width, height, 66, 66);
 		g.setColor(Color.white);
-		g.drawString(getText(), (int)getSize().getWidth()/2-4, (int)getSize().getWidth()/2);
+		g.drawString(getText(), (int)getSize().getWidth()/2-10, (int)getSize().getWidth()/2+5);
 	}
 }
