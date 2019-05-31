@@ -3,6 +3,7 @@ import java.awt.Graphics;
 
 import javax.swing.JButton;
 
+@SuppressWarnings("serial")
 public class MyButton extends JButton{
 	
 	public int state = 10;
