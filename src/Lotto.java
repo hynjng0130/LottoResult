@@ -15,6 +15,7 @@ import javax.swing.plaf.FontUIResource;
 import org.json.simple.JSONObject;
 import javax.swing.SwingConstants;
 
+@SuppressWarnings("serial")
 public class Lotto extends JFrame implements MouseListener, KeyListener {
 
 	MyButton mbtn1 = new MyButton("");
